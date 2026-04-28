@@ -57,6 +57,19 @@ def check_dependencies():
     try:
         opus.Encoder.get_opus_version()
     except opus.OpusNotLoaded as e:
+        # discord.py's auto-discovery misses Homebrew paths on macOS
+        if sys.platform == "darwin":
+            for path in (
+                "/opt/homebrew/lib/libopus.dylib",
+                "/usr/local/lib/libopus.dylib",
+            ):
+                if os.path.exists(path):
+                    try:
+                        opus.load_opus(path)
+                        opus.Encoder.get_opus_version()
+                        return
+                    except (OSError, opus.OpusNotLoaded):
+                        continue
         raise RuntimeError("opus was not found") from e
 
 
