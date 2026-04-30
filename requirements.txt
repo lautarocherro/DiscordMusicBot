@@ -8,4 +8,7 @@ spotipy==2.26.0
 SQLAlchemy[asyncio]==2.0.49
 alembic==1.18.4
 aioconsole==0.8.2
+python-binance==1.0.30
+riotwatcher==3.3.0
+matplotlib==3.10.7
 ./config

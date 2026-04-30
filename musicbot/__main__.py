@@ -15,6 +15,11 @@ initial_extensions = [
     "musicbot.commands.developer",
 ]
 
+if config.ENABLE_CRYPTOS_RT:
+    initial_extensions.append("musicbot.extensions.cryptos_real_time")
+if config.ENABLE_STATS_LOL:
+    initial_extensions.append("musicbot.extensions.stats_lol")
+
 
 intents = discord.Intents.default()
 intents.voice_states = True

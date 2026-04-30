@@ -89,6 +89,24 @@ class Config:
     # if not empty, the bot will leave non-whitelisted guilds
     GUILD_WHITELIST = []
 
+    # ---- Crypto / FX ticker (cryptos_real_time extension) ----
+    # Updates voice channel names with current ETH, BTC and Dolar Blue prices.
+    ENABLE_CRYPTOS_RT = False
+    BINANCE_API_KEY = ""
+    BINANCE_API_SECRET = ""
+    # Voice channel IDs to rename. Set to 0 to skip.
+    CRYPTOS_BTC_VOICE_ID = 0
+    CRYPTOS_ETH_VOICE_ID = 0
+    CRYPTOS_BLUE_VOICE_ID = 0
+
+    # ---- League of Legends match watcher (stats_lol extension) ----
+    # Posts stats / roasts about tracked players' last LoL match.
+    ENABLE_STATS_LOL = False
+    RIOT_API_KEY = ""
+    RIOT_REGION = "la2"
+    # Channel ID where match notifications are posted.
+    STATS_LOL_CHAT_ID = 0
+
     def __init__(self):
         current_cfg = self.load()
 
